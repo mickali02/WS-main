@@ -32,26 +32,3 @@ package main
 			time.Now().Add(time.Second),
 		)
 }
-	defer conn.close()
-		// Read a message
-		msgType, payload, err := conn.ReadMessage()
-		if err != nil {
-			log.Printf("read error: %v", err)
-			return
-		}
-
-		defer conn.close()
-		// Process a message
-		if msgType == websocket.TextMessage {
-		err := conn.WriteMessage(websocket.TextMessage, payload)
-		if err != nil {
-			log.Printf("write error: %v", err)
-			return
-		}
-		}
-	var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool {
-          	return true
-	},
-
-
